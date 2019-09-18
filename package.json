@@ -1,20 +1,62 @@
 {
-  "name": "beginner-reactive-programming-with-rxjs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "name": "learning-rxjs",
+  "version": "0.1.0",
+  "description": "TODO-MVC implement by RxJS",
+  "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "compile_serve": "tsc ./server/index.ts ./server/global.d.ts -m commonjs --outDir lib --target ES2015 --experimentalDecorators --moduleResolution node --noImplicitAny --noImplicitThis --noImplicitReturns --noUnusedParameters --suppressImplicitAnyIndexErrors",
+    "dev": "webpack-dev-server --inline --progress --port 3006  --content-base src",
+    "lint": "tslint --type-check -p ./tsconfig.json src/**/*.ts server/**/*.ts",
+    "serve": "npm run compile_serve && node lib/index.js",
+    "start": "npm-run-all -p serve dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc ./server/index.ts ./server/global.d.ts -m commonjs --outDir lib --target ES2015 --experimentalDecorators --moduleResolution node -w & nodemon lib/index.js",
+    "build": "NODE_ENV=production webpack"
   },
-  "author": "Cory Rylan",
+  "keywords": [
+    "RxJS",
+    "TypeScript"
+  ],
+  "author": "lynweklm@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "5.2.0"
+    "bootstrap": "^4.0.0",
+    "config": "^1.30.0",
+    "jquery": "^3.3.1",
+    "koa": "^2.5.0",
+    "koa-better-body": "^3.0.4",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "os": "^0.1.1",
+    "popper.js": "^1.14.1",
+    "raw-body": "^2.3.2",
+    "rxjs": "^5.5.8",
+    "spark-md5": "^3.0.0"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "3.1.2",
-    "webpack": "2.3.2",
-    "webpack-dev-server": "2.4.2",
-    "typescript": "2.2.1"
+    "@types/jquery": "^3.3.1",
+    "@types/koa": "*",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/koa-router": "^7.0.27",
+    "@types/node": "~9.6.1",
+    "@types/raw-body": "^2.3.0",
+    "awesome-typescript-loader": "^4.0.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.1.0",
+    "nodemon": "^1.17.3",
+    "npm-run-all": "^4.1.2",
+    "raw-loader": "^0.5.1",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "to-string-loader": "^1.1.5",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "tslint-loader": "^3.6.0",
+    "typescript": "^2.8.1",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.2"
   }
 }

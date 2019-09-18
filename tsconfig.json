@@ -1,16 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "target": "ES6",
     "sourceMap": true,
-    "outDir": "dist",
-    "lib": [
-      "dom",
-      "es2016"
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "outDir": "lib",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jquery"
     ]
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false,
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true
+  }
 }

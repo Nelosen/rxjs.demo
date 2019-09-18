@@ -1,0 +1,20 @@
+machine:
+  node:
+    version: 8
+
+dependencies:
+  override:
+    - yarn global add greenkeeper-lockfile@1
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  before:
+    - greenkeeper-lockfile-update
+  override:
+    - yarn lint
+    - yarn compile_serve
+    - yarn build
+  post:
+    - greenkeeper-lockfile-upload
